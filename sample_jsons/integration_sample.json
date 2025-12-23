@@ -1,0 +1,897 @@
+{
+    "results": [
+        {
+            "id": "HPE-ALLETRA",
+            "name": "hpe-alletra",
+            "displayName": "HPE Alletra MP/9000 Series",
+            "category": "SDK APP",
+            "metaData": {
+                "md": {},
+                "icon": {
+                    "url": "",
+                    "type": "png"
+                },
+                "logo": {
+                    "file": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHRSURBVHgB7Zk/TsMwFMZfCgIkBsLKlEysycKcMCAx9QYoPUGPQDlBlAuglAtUcABiVhYqLhCXlSULQ8UQ3kubqglxm6qW6kr+SV/jPD9bX/1HsluAOXmem6h7VJLvng9UAEsYc5MWPhKUBWrBUb5hGLw0moJ6Jks4yj2YD3EA6mKipgatByw4oDaMjOawB3RgT9BGZaONykYblY02KhttVDaNRvH8B7ZtCxvV633fL2JNcl0XhsPhIpcxJsxdVp1DkIjjOGCaZiVGxoIggCzLoN/vL+KUR/mtaboHUNiyLOE9oV7veV4RS9P0X26SJJV8yhkMBvloNMo3QTiiNAJxHMO24JconpzzWb9nJzC5dWCC5Zf3Z2G7x6tu5X2l0V6vB9tAfURRVJTLac5+pxDzz7VtWxulNYTT01hHm6cJ0QakvsIwrMS6F5cQujfQlpVGy2lrS30zURnXZrGJ6LnM+dExWKdm676l7nqagbohEez7C67Zk7D+1burvEs1ugn8JyvUFn25k402KhttVDbaqGy0UdnslVEG6jMmo2+gPhEdSuhQSD+PW6AmHG+ldgc/6KxFR3YO6sFh5m22mYr/cdA1FumSNIbdw1APKJe8UeAP1SiQ9SyxJeIAAAAASUVORK5CYII=",
+                    "name": "hpe-alletra-logo"
+                },
+                "images": [],
+                "resourceHierarchy": {
+                    "Alletra MP": {
+                        "HPE Alletra Storage System": {
+                            "nodeAction": "availableAppName = 'HPE-ALLETRA' AND appPersona = \"Alletra MP\"",
+                            "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Storage System\" AND appPersona = \"Alletra MP\"",
+                            "resourceAction": {
+                                "HPE Alletra Cage": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Cage\", \"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Cage\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Node": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Node\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra Adapter": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Adapter\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "resourceAction": {
+                                                        "HPE Alletra Port": {
+                                                            "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Port\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "HPE Alletra Host": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Host\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Physical Disk": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Physical Disk\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Common Provisioning Group": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Common Provisioning Group\", \"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Common Provisioning Group\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Storage Volume": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Storage Volume\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra VLUN": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra VLUN\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Alletra 9000": {
+                        "HPE Alletra Storage System": {
+                            "nodeAction": "availableAppName = 'HPE-ALLETRA' AND appPersona = \"Alletra 9000\"",
+                            "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Storage System\" AND appPersona = \"Alletra 9000\"",
+                            "resourceAction": {
+                                "HPE Alletra Cage": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Cage\", \"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\", \"HPE Alletra Battery\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Cage\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Node": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\", \"HPE Alletra Battery\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Node\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra Adapter": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Adapter\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "resourceAction": {
+                                                        "HPE Alletra Port": {
+                                                            "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Port\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                        }
+                                                    }
+                                                },
+                                                "HPE Alletra Battery": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Battery\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "HPE Alletra Host": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Host\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Physical Disk": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Physical Disk\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Common Provisioning Group": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Common Provisioning Group\", \"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Common Provisioning Group\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Storage Volume": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Storage Volume\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra VLUN": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra VLUN\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "assets": {
+                "md": {},
+                "icon": {
+                    "url": "",
+                    "type": "png"
+                },
+                "logo": {
+                    "file": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHRSURBVHgB7Zk/TsMwFMZfCgIkBsLKlEysycKcMCAx9QYoPUGPQDlBlAuglAtUcABiVhYqLhCXlSULQ8UQ3kubqglxm6qW6kr+SV/jPD9bX/1HsluAOXmem6h7VJLvng9UAEsYc5MWPhKUBWrBUb5hGLw0moJ6Jks4yj2YD3EA6mKipgatByw4oDaMjOawB3RgT9BGZaONykYblY02KhttVDaNRvH8B7ZtCxvV633fL2JNcl0XhsPhIpcxJsxdVp1DkIjjOGCaZiVGxoIggCzLoN/vL+KUR/mtaboHUNiyLOE9oV7veV4RS9P0X26SJJV8yhkMBvloNMo3QTiiNAJxHMO24JconpzzWb9nJzC5dWCC5Zf3Z2G7x6tu5X2l0V6vB9tAfURRVJTLac5+pxDzz7VtWxulNYTT01hHm6cJ0QakvsIwrMS6F5cQujfQlpVGy2lrS30zURnXZrGJ6LnM+dExWKdm676l7nqagbohEez7C67Zk7D+1burvEs1ugn8JyvUFn25k402KhttVDbaqGy0UdnslVEG6jMmo2+gPhEdSuhQSD+PW6AmHG+ldgc/6KxFR3YO6sFh5m22mYr/cdA1FumSNIbdw1APKJe8UeAP1SiQ9SyxJeIAAAAASUVORK5CYII=",
+                    "name": "hpe-alletra-logo"
+                },
+                "images": [],
+                "resourceHierarchy": {
+                    "Alletra MP": {
+                        "HPE Alletra Storage System": {
+                            "nodeAction": "availableAppName = 'HPE-ALLETRA' AND appPersona = \"Alletra MP\"",
+                            "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Storage System\" AND appPersona = \"Alletra MP\"",
+                            "resourceAction": {
+                                "HPE Alletra Cage": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Cage\", \"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Cage\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Node": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Node\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra Adapter": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Adapter\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "resourceAction": {
+                                                        "HPE Alletra Port": {
+                                                            "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Port\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "HPE Alletra Host": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Host\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Physical Disk": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Physical Disk\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Common Provisioning Group": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Common Provisioning Group\", \"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Common Provisioning Group\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Storage Volume": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Storage Volume\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra VLUN": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra VLUN\" AND appPersona = \"Alletra MP\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "Alletra 9000": {
+                        "HPE Alletra Storage System": {
+                            "nodeAction": "availableAppName = 'HPE-ALLETRA' AND appPersona = \"Alletra 9000\"",
+                            "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Storage System\" AND appPersona = \"Alletra 9000\"",
+                            "resourceAction": {
+                                "HPE Alletra Cage": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Cage\", \"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\", \"HPE Alletra Battery\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Cage\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Node": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Node\", \"HPE Alletra Adapter\", \"HPE Alletra Port\", \"HPE Alletra Battery\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Node\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra Adapter": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Adapter\", \"HPE Alletra Port\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Adapter\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                    "resourceAction": {
+                                                        "HPE Alletra Port": {
+                                                            "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Port\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                        }
+                                                    }
+                                                },
+                                                "HPE Alletra Battery": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Battery\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "HPE Alletra Host": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Host\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Physical Disk": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Physical Disk\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                },
+                                "HPE Alletra Common Provisioning Group": {
+                                    "nodeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType IN (\"HPE Alletra Common Provisioning Group\", \"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "treeAction": "availableAppName = 'HPE-ALLETRA' AND nativeType = \"HPE Alletra Common Provisioning Group\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                    "resourceAction": {
+                                        "HPE Alletra Storage Volume": {
+                                            "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Storage Volume\", \"HPE Alletra VLUN\") AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra Storage Volume\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                            "resourceAction": {
+                                                "HPE Alletra VLUN": {
+                                                    "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra VLUN\" AND appPersona = \"Alletra 9000\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publisher": "BGL-MSLAB",
+            "versions": [
+                {
+                    "tag": "1.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "2.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.1",
+                    "state": "Published"
+                },
+                {
+                    "tag": "4.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "4.0.1",
+                    "state": "Published"
+                },
+                {
+                    "tag": "5.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "6.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "7.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "8.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "9.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "9.0.1",
+                    "state": "Published"
+                },
+                {
+                    "tag": "10.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "10.0.1",
+                    "state": "Published"
+                },
+                {
+                    "tag": "10.0.2",
+                    "state": "Published"
+                },
+                {
+                    "tag": "10.0.3",
+                    "state": "Published"
+                }
+            ],
+            "accessLevel": "EVERYONE",
+            "integrationId": 0,
+            "provisionUserWithTenantPrefix": false,
+            "subCategory": "Storage",
+            "subCategoryJson": {
+                "name": "Storage",
+                "displayName": "Storage"
+            },
+            "nativeType": [
+                {
+                    "label": "HPE Alletra Cage",
+                    "displayOrder": 5
+                },
+                {
+                    "label": "HPE Alletra Host",
+                    "displayOrder": 4
+                },
+                {
+                    "label": "HPE Alletra Node",
+                    "displayOrder": 7
+                },
+                {
+                    "label": "HPE Alletra Port",
+                    "displayOrder": 11
+                },
+                {
+                    "label": "HPE Alletra VLUN",
+                    "displayOrder": 8
+                },
+                {
+                    "label": "HPE Alletra Adapter",
+                    "displayOrder": 9
+                },
+                {
+                    "label": "HPE Alletra Battery",
+                    "displayOrder": 10
+                },
+                {
+                    "label": "HPE Alletra Physical Disk",
+                    "displayOrder": 3
+                },
+                {
+                    "label": "HPE Alletra Storage System",
+                    "isRootResource": true,
+                    "displayOrder": 1
+                },
+                {
+                    "label": "HPE Alletra Storage Volume",
+                    "displayOrder": 6
+                },
+                {
+                    "label": "HPE Alletra Common Provisioning Group",
+                    "displayOrder": 2
+                }
+            ],
+            "managePermission": [
+                "INTEGRATION_MANAGE"
+            ],
+            "editPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT"
+            ],
+            "scanPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT",
+                "INTEGRATION_SCAN"
+            ],
+            "viewPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT",
+                "INTEGRATION_SCAN",
+                "INTEGRATION_VIEW"
+            ]
+        },
+        {
+            "id": "HPE-ALLETRA-6000",
+            "name": "hpe-alletra-6000",
+            "displayName": "HPE Alletra 5000/6000 Series",
+            "category": "SDK APP",
+            "metaData": {
+                "md": {
+                    "url": ""
+                },
+                "icon": {
+                    "url": "",
+                    "type": ""
+                },
+                "logo": {
+                    "file": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHRSURBVHgB7Zk/TsMwFMZfCgIkBsLKlEysycKcMCAx9QYoPUGPQDlBlAuglAtUcABiVhYqLhCXlSULQ8UQ3kubqglxm6qW6kr+SV/jPD9bX/1HsluAOXmem6h7VJLvng9UAEsYc5MWPhKUBWrBUb5hGLw0moJ6Jks4yj2YD3EA6mKipgatByw4oDaMjOawB3RgT9BGZaONykYblY02KhttVDaNRvH8B7ZtCxvV633fL2JNcl0XhsPhIpcxJsxdVp1DkIjjOGCaZiVGxoIggCzLoN/vL+KUR/mtaboHUNiyLOE9oV7veV4RS9P0X26SJJV8yhkMBvloNMo3QTiiNAJxHMO24JconpzzWb9nJzC5dWCC5Zf3Z2G7x6tu5X2l0V6vB9tAfURRVJTLac5+pxDzz7VtWxulNYTT01hHm6cJ0QakvsIwrMS6F5cQujfQlpVGy2lrS30zURnXZrGJ6LnM+dExWKdm676l7nqagbohEez7C67Zk7D+1burvEs1ugn8JyvUFn25k402KhttVDbaqGy0UdnslVEG6jMmo2+gPhEdSuhQSD+PW6AmHG+ldgc/6KxFR3YO6sFh5m22mYr/cdA1FumSNIbdw1APKJe8UeAP1SiQ9SyxJeIAAAAASUVORK5CYII=",
+                    "name": "hpe-alletra-6000-logo"
+                },
+                "images": [],
+                "resourceHierarchy": {
+                    "HPE Alletra Group": {
+                        "nodeAction": "availableAppName = 'HPE-ALLETRA-6000'",
+                        "treeAction": "availableAppName = 'HPE-ALLETRA-6000' AND nativeType IN (\"HPE Alletra Group\")",
+                        "resourceAction": {
+                            "HPE Alletra Pool": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-6000' AND nativeType IN (\"HPE Alletra Pool\", \"HPE Alletra Volume\", \"HPE Alletra Array\", \"HPE Alletra Shelf\", \"HPE Alletra Disk\", \"HPE Alletra Controller\", \"HPE Alletra FC Port\", \"HPE Alletra FC Interface\", \"HPE Alletra Network Interface\", \"HPE Alletra Fan\", \"HPE Alletra Temperature Sensor\", \"HPE Alletra Power Supply\", \"HPE Alletra NVMe Port\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "treeAction": "availableAppName = 'HPE-ALLETRA-6000' AND nativeType IN (\"HPE Alletra Pool\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "resourceAction": {
+                                    "HPE Alletra Array": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Array\", \"HPE Alletra Shelf\", \"HPE Alletra Disk\", \"HPE Alletra Controller\", \"HPE Alletra FC Port\", \"HPE Alletra FC Interface\", \"HPE Alletra Network Interface\", \"HPE Alletra Fan\", \"HPE Alletra Temperature Sensor\", \"HPE Alletra Power Supply\", \"HPE Alletra NVMe Port\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "treeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Array\" and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "resourceAction": {
+                                            "HPE Alletra Shelf": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Shelf\", \"HPE Alletra Disk\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "treeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Shelf\" and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "resourceAction": {
+                                                    "HPE Alletra Disk": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Disk\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    }
+                                                }
+                                            },
+                                            "HPE Alletra Controller": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Controller\", \"HPE Alletra FC Port\", \"HPE Alletra FC Interface\", \"HPE Alletra Network Interface\", \"HPE Alletra Fan\", \"HPE Alletra Temperature Sensor\", \"HPE Alletra Power Supply\", \"HPE Alletra NVMe Port\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "treeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Controller\" and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "resourceAction": {
+                                                    "HPE Alletra Fan": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Fan\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra FC Port": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra FC Port\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra NVMe Port": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra NVMe Port\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra FC Interface": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra FC Interface\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra Power Supply": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Power Supply\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra Network Interface": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Network Interface\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra Temperature Sensor": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Temperature Sensor\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HPE Alletra Volume": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Volume\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "assets": {
+                "md": {
+                    "url": ""
+                },
+                "icon": {
+                    "url": "",
+                    "type": ""
+                },
+                "logo": {
+                    "file": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHRSURBVHgB7Zk/TsMwFMZfCgIkBsLKlEysycKcMCAx9QYoPUGPQDlBlAuglAtUcABiVhYqLhCXlSULQ8UQ3kubqglxm6qW6kr+SV/jPD9bX/1HsluAOXmem6h7VJLvng9UAEsYc5MWPhKUBWrBUb5hGLw0moJ6Jks4yj2YD3EA6mKipgatByw4oDaMjOawB3RgT9BGZaONykYblY02KhttVDaNRvH8B7ZtCxvV633fL2JNcl0XhsPhIpcxJsxdVp1DkIjjOGCaZiVGxoIggCzLoN/vL+KUR/mtaboHUNiyLOE9oV7veV4RS9P0X26SJJV8yhkMBvloNMo3QTiiNAJxHMO24JconpzzWb9nJzC5dWCC5Zf3Z2G7x6tu5X2l0V6vB9tAfURRVJTLac5+pxDzz7VtWxulNYTT01hHm6cJ0QakvsIwrMS6F5cQujfQlpVGy2lrS30zURnXZrGJ6LnM+dExWKdm676l7nqagbohEez7C67Zk7D+1burvEs1ugn8JyvUFn25k402KhttVDbaqGy0UdnslVEG6jMmo2+gPhEdSuhQSD+PW6AmHG+ldgc/6KxFR3YO6sFh5m22mYr/cdA1FumSNIbdw1APKJe8UeAP1SiQ9SyxJeIAAAAASUVORK5CYII=",
+                    "name": "hpe-alletra-6000-logo"
+                },
+                "images": [],
+                "resourceHierarchy": {
+                    "HPE Alletra Group": {
+                        "nodeAction": "availableAppName = 'HPE-ALLETRA-6000'",
+                        "treeAction": "availableAppName = 'HPE-ALLETRA-6000' AND nativeType IN (\"HPE Alletra Group\")",
+                        "resourceAction": {
+                            "HPE Alletra Pool": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-6000' AND nativeType IN (\"HPE Alletra Pool\", \"HPE Alletra Volume\", \"HPE Alletra Array\", \"HPE Alletra Shelf\", \"HPE Alletra Disk\", \"HPE Alletra Controller\", \"HPE Alletra FC Port\", \"HPE Alletra FC Interface\", \"HPE Alletra Network Interface\", \"HPE Alletra Fan\", \"HPE Alletra Temperature Sensor\", \"HPE Alletra Power Supply\", \"HPE Alletra NVMe Port\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "treeAction": "availableAppName = 'HPE-ALLETRA-6000' AND nativeType IN (\"HPE Alletra Pool\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "resourceAction": {
+                                    "HPE Alletra Array": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Array\", \"HPE Alletra Shelf\", \"HPE Alletra Disk\", \"HPE Alletra Controller\", \"HPE Alletra FC Port\", \"HPE Alletra FC Interface\", \"HPE Alletra Network Interface\", \"HPE Alletra Fan\", \"HPE Alletra Temperature Sensor\", \"HPE Alletra Power Supply\", \"HPE Alletra NVMe Port\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "treeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Array\" and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "resourceAction": {
+                                            "HPE Alletra Shelf": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Shelf\", \"HPE Alletra Disk\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "treeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Shelf\" and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "resourceAction": {
+                                                    "HPE Alletra Disk": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Disk\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    }
+                                                }
+                                            },
+                                            "HPE Alletra Controller": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra Controller\", \"HPE Alletra FC Port\", \"HPE Alletra FC Interface\", \"HPE Alletra Network Interface\", \"HPE Alletra Fan\", \"HPE Alletra Temperature Sensor\", \"HPE Alletra Power Supply\", \"HPE Alletra NVMe Port\") and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "treeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Controller\" and discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "resourceAction": {
+                                                    "HPE Alletra Fan": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Fan\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra FC Port": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra FC Port\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra NVMe Port": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra NVMe Port\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra FC Interface": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra FC Interface\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra Power Supply": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Power Supply\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra Network Interface": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Network Interface\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    },
+                                                    "HPE Alletra Temperature Sensor": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Temperature Sensor\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "HPE Alletra Volume": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType=\"HPE Alletra Volume\" and discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publisher": "BGL-MSLAB",
+            "versions": [
+                {
+                    "tag": "1.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "2.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.1",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.2",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.3",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.4",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.5",
+                    "state": "Published"
+                },
+                {
+                    "tag": "3.0.6",
+                    "state": "Published"
+                },
+                {
+                    "tag": "4.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "4.0.1",
+                    "state": "Published"
+                },
+                {
+                    "tag": "4.0.2",
+                    "state": "Published"
+                },
+                {
+                    "tag": "5.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "5.1.0",
+                    "state": "Published"
+                }
+            ],
+            "accessLevel": "EVERYONE",
+            "integrationId": 0,
+            "provisionUserWithTenantPrefix": false,
+            "subCategory": "Storage",
+            "subCategoryJson": {
+                "name": "Storage",
+                "displayName": "Storage"
+            },
+            "nativeType": [
+                {
+                    "label": "HPE Alletra Fan",
+                    "displayOrder": 11
+                },
+                {
+                    "label": "HPE Alletra Disk",
+                    "displayOrder": 6
+                },
+                {
+                    "label": "HPE Alletra Pool",
+                    "displayOrder": 2
+                },
+                {
+                    "label": "HPE Alletra Array",
+                    "displayOrder": 4
+                },
+                {
+                    "label": "HPE Alletra Group",
+                    "isRootResource": true,
+                    "displayOrder": 1
+                },
+                {
+                    "label": "HPE Alletra Shelf",
+                    "displayOrder": 5
+                },
+                {
+                    "label": "HPE Alletra Volume",
+                    "displayOrder": 3
+                },
+                {
+                    "label": "HPE Alletra FC Port",
+                    "displayOrder": 8
+                },
+                {
+                    "label": "HPE Alletra NVMe Port",
+                    "displayOrder": 14
+                },
+                {
+                    "label": "HPE Alletra Controller",
+                    "displayOrder": 7
+                },
+                {
+                    "label": "HPE Alletra FC Interface",
+                    "displayOrder": 9
+                },
+                {
+                    "label": "HPE Alletra Power Supply",
+                    "displayOrder": 13
+                },
+                {
+                    "label": "HPE Alletra Network Interface",
+                    "displayOrder": 10
+                },
+                {
+                    "label": "HPE Alletra Temperature Sensor",
+                    "displayOrder": 12
+                }
+            ],
+            "managePermission": [
+                "INTEGRATION_MANAGE"
+            ],
+            "editPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT"
+            ],
+            "scanPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT",
+                "INTEGRATION_SCAN"
+            ],
+            "viewPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT",
+                "INTEGRATION_SCAN",
+                "INTEGRATION_VIEW"
+            ]
+        },
+        {
+            "id": "HPE-ALLETRA-MP-B10000",
+            "name": "hpe-alletra-mp-b10000",
+            "displayName": "HPE Alletra MP B10000 Series",
+            "category": "SDK APP",
+            "metaData": {
+                "md": {},
+                "icon": {
+                    "url": "",
+                    "type": "png"
+                },
+                "logo": {
+                    "file": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHRSURBVHgB7Zk/TsMwFMZfCgIkBsLKlEysycKcMCAx9QYoPUGPQDlBlAuglAtUcABiVhYqLhCXlSULQ8UQ3kubqglxm6qW6kr+SV/jPD9bX/1HsluAOXmem6h7VJLvng9UAEsYc5MWPhKUBWrBUb5hGLw0moJ6Jks4yj2YD3EA6mKipgatByw4oDaMjOawB3RgT9BGZaONykYblY02KhttVDaNRvH8B7ZtCxvV633fL2JNcl0XhsPhIpcxJsxdVp1DkIjjOGCaZiVGxoIggCzLoN/vL+KUR/mtaboHUNiyLOE9oV7veV4RS9P0X26SJJV8yhkMBvloNMo3QTiiNAJxHMO24JconpzzWb9nJzC5dWCC5Zf3Z2G7x6tu5X2l0V6vB9tAfURRVJTLac5+pxDzz7VtWxulNYTT01hHm6cJ0QakvsIwrMS6F5cQujfQlpVGy2lrS30zURnXZrGJ6LnM+dExWKdm676l7nqagbohEez7C67Zk7D+1burvEs1ugn8JyvUFn25k402KhttVDbaqGy0UdnslVEG6jMmo2+gPhEdSuhQSD+PW6AmHG+ldgc/6KxFR3YO6sFh5m22mYr/cdA1FumSNIbdw1APKJe8UeAP1SiQ9SyxJeIAAAAASUVORK5CYII=",
+                    "name": "hpe-alletra-mp-b10000-logo"
+                },
+                "images": [],
+                "resourceHierarchy": {
+                    "HPE Alletra MP B10000 Storage System": {
+                        "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000'",
+                        "treeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Storage System\"",
+                        "resourceAction": {
+                            "HPE Alletra MP B10000 Cage": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType IN (\"HPE Alletra MP B10000 Cage\", \"HPE Alletra MP B10000 Node\", \"HPE Alletra MP B10000 Adapter\", \"HPE Alletra MP B10000 Port\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "treeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Cage\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "resourceAction": {
+                                    "HPE Alletra MP B10000 Node": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra MP B10000 Node\", \"HPE Alletra MP B10000 Adapter\", \"HPE Alletra MP B10000 Port\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Node\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "resourceAction": {
+                                            "HPE Alletra MP B10000 Adapter": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra MP B10000 Adapter\", \"HPE Alletra MP B10000 Port\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Adapter\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "resourceAction": {
+                                                    "HPE Alletra MP B10000 Port": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Port\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "HPE Alletra MP B10000 Host": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Host\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                            },
+                            "HPE Alletra MP B10000 Physical Disk": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Physical Disk\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                            },
+                            "HPE Alletra MP B10000 Common Provisioning Group": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType IN (\"HPE Alletra MP B10000 Common Provisioning Group\", \"HPE Alletra MP B10000 Storage Volume\", \"HPE Alletra MP B10000 VLUN\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "treeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Common Provisioning Group\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "resourceAction": {
+                                    "HPE Alletra MP B10000 Storage Volume": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra MP B10000 Storage Volume\", \"HPE Alletra MP B10000 VLUN\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Storage Volume\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "resourceAction": {
+                                            "HPE Alletra MP B10000 VLUN": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 VLUN\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "assets": {
+                "md": {},
+                "icon": {
+                    "url": "",
+                    "type": "png"
+                },
+                "logo": {
+                    "file": "iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAHRSURBVHgB7Zk/TsMwFMZfCgIkBsLKlEysycKcMCAx9QYoPUGPQDlBlAuglAtUcABiVhYqLhCXlSULQ8UQ3kubqglxm6qW6kr+SV/jPD9bX/1HsluAOXmem6h7VJLvng9UAEsYc5MWPhKUBWrBUb5hGLw0moJ6Jks4yj2YD3EA6mKipgatByw4oDaMjOawB3RgT9BGZaONykYblY02KhttVDaNRvH8B7ZtCxvV633fL2JNcl0XhsPhIpcxJsxdVp1DkIjjOGCaZiVGxoIggCzLoN/vL+KUR/mtaboHUNiyLOE9oV7veV4RS9P0X26SJJV8yhkMBvloNMo3QTiiNAJxHMO24JconpzzWb9nJzC5dWCC5Zf3Z2G7x6tu5X2l0V6vB9tAfURRVJTLac5+pxDzz7VtWxulNYTT01hHm6cJ0QakvsIwrMS6F5cQujfQlpVGy2lrS30zURnXZrGJ6LnM+dExWKdm676l7nqagbohEez7C67Zk7D+1burvEs1ugn8JyvUFn25k402KhttVDbaqGy0UdnslVEG6jMmo2+gPhEdSuhQSD+PW6AmHG+ldgc/6KxFR3YO6sFh5m22mYr/cdA1FumSNIbdw1APKJe8UeAP1SiQ9SyxJeIAAAAASUVORK5CYII=",
+                    "name": "hpe-alletra-mp-b10000-logo"
+                },
+                "images": [],
+                "resourceHierarchy": {
+                    "HPE Alletra MP B10000 Storage System": {
+                        "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000'",
+                        "treeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Storage System\"",
+                        "resourceAction": {
+                            "HPE Alletra MP B10000 Cage": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType IN (\"HPE Alletra MP B10000 Cage\", \"HPE Alletra MP B10000 Node\", \"HPE Alletra MP B10000 Adapter\", \"HPE Alletra MP B10000 Port\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "treeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Cage\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "resourceAction": {
+                                    "HPE Alletra MP B10000 Node": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra MP B10000 Node\", \"HPE Alletra MP B10000 Adapter\", \"HPE Alletra MP B10000 Port\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Node\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "resourceAction": {
+                                            "HPE Alletra MP B10000 Adapter": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra MP B10000 Adapter\", \"HPE Alletra MP B10000 Port\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Adapter\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                                "resourceAction": {
+                                                    "HPE Alletra MP B10000 Port": {
+                                                        "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Port\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "HPE Alletra MP B10000 Host": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Host\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                            },
+                            "HPE Alletra MP B10000 Physical Disk": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Physical Disk\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                            },
+                            "HPE Alletra MP B10000 Common Provisioning Group": {
+                                "nodeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType IN (\"HPE Alletra MP B10000 Common Provisioning Group\", \"HPE Alletra MP B10000 Storage Volume\", \"HPE Alletra MP B10000 VLUN\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "treeAction": "availableAppName = 'HPE-ALLETRA-MP-B10000' AND nativeType = \"HPE Alletra MP B10000 Common Provisioning Group\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                "resourceAction": {
+                                    "HPE Alletra MP B10000 Storage Volume": {
+                                        "nodeAction": "topology.sourceId = ${id} AND nativeType IN (\"HPE Alletra MP B10000 Storage Volume\", \"HPE Alletra MP B10000 VLUN\") AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "treeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 Storage Volume\" AND discoveryManifestConfigId=${discoveryManifestConfigId}",
+                                        "resourceAction": {
+                                            "HPE Alletra MP B10000 VLUN": {
+                                                "nodeAction": "topology.sourceId = ${id} AND nativeType = \"HPE Alletra MP B10000 VLUN\" AND discoveryManifestConfigId=${discoveryManifestConfigId}"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publisher": "BGL-MSLAB",
+            "versions": [
+                {
+                    "tag": "1.0.0",
+                    "state": "Published"
+                },
+                {
+                    "tag": "1.0.1",
+                    "state": "Published"
+                }
+            ],
+            "accessLevel": "EVERYONE",
+            "integrationId": 0,
+            "provisionUserWithTenantPrefix": false,
+            "subCategory": "Storage",
+            "subCategoryJson": {
+                "name": "Storage",
+                "displayName": "Storage"
+            },
+            "nativeType": [
+                {
+                    "label": "HPE Alletra MP B10000 Cage",
+                    "displayOrder": 5
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Host",
+                    "displayOrder": 4
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Node",
+                    "displayOrder": 7
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Port",
+                    "displayOrder": 10
+                },
+                {
+                    "label": "HPE Alletra MP B10000 VLUN",
+                    "displayOrder": 8
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Adapter",
+                    "displayOrder": 9
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Physical Disk",
+                    "displayOrder": 3
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Storage System",
+                    "isRootResource": true,
+                    "displayOrder": 1
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Storage Volume",
+                    "displayOrder": 6
+                },
+                {
+                    "label": "HPE Alletra MP B10000 Common Provisioning Group",
+                    "displayOrder": 2
+                }
+            ],
+            "managePermission": [
+                "INTEGRATION_MANAGE"
+            ],
+            "editPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT"
+            ],
+            "scanPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT",
+                "INTEGRATION_SCAN"
+            ],
+            "viewPermission": [
+                "INTEGRATION_MANAGE",
+                "INTEGRATION_EDIT",
+                "INTEGRATION_SCAN",
+                "INTEGRATION_VIEW"
+            ]
+        }
+    ],
+    "totalResults": 3,
+    "pageNo": 1,
+    "pageSize": 100,
+    "totalPages": 1,
+    "nextPage": false,
+    "previousPageNo": 0,
+    "descendingOrder": false
+}

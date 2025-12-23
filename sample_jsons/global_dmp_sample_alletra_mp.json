@@ -1,0 +1,33 @@
+{
+    "results": [
+        {
+            "id": "97311b40-c891-4117-93f0-ca8464f6a687",
+            "name": "hpe-alletra Alletra MP HPE Alletra Storage System Template - 10",
+            "description": "hpe-alletra Alletra MP HPE Alletra Storage System Template - 10",
+            "generation": 2,
+            "collectorType": "Gateway",
+            "applicableFor": "All Resources",
+            "monitors": "hpe_alletra_system_license_State, hpe_alletra_system_node_online_status, hpe_alletra_system_capacity_AllocatedMiB, HPE Alletra System Capacity Free for Allocation, HPE Alletra System Capacity Total Size, HPE Alletra System Capacity Used, hpe_alletra_system_capacity_FailedMiB, hpe_alletra_system_capacity_OverProvisionedVirtualSizeMiB, hpe_alletra_system_capacity_OverProvisionedUsedMiB, hpe_alletra_system_capacity_OverProvisionedAllocatedMiB, hpe_alletra_system_capacity_OverProvisionedFreeMiB, hpe_alletra_cacheMemoryStatistics_HitIO, hpe_alletra_cacheMemoryStatistics_MissIO, hpe_alletra_cacheMemoryStatistics_AccessIO, hpe_alletra_cacheMemoryStatistics_HitPct, hpe_alletra_cacheMemoryStatistics_TotalAccessIO, hpe_alletra_cacheMemoryStatistics_LockBulkIO, hpe_alletra_cacheMemoryStatistics_PageStates, hpe_alletra_cacheMemoryStatistics_DirtyPages, hpe_alletra_cacheMemoryStatistics_MaxDirtyPages, hpe_alletra_cacheMemoryStatistics_DelayAckPages, hpe_alletra_cpuStatistics_UserPct, hpe_alletra_cpuStatistics_SystemPct, hpe_alletra_cpuStatistics_IdlePct, hpe_alletra_cpuStatistics_InterruptsPerSec, hpe_alletra_cpuStatistics_ContextSwitchesPerSec, hpe_alletra_diskDrive_State, HPE Alletra System Free Capacity, HPE Alletra System Free Capacity Utilization, HPE Alletra Remote Copy Status, HPE Alletra Remote Copy Target Status, HPE Alletra Remote Copy Target State, HPE Alletra Remote Copy Group State, HPE Alletra Remote Volume Sync State, HPE Alletra Remote Copy Total KBytes, HPE Alletra Remote Copy throughput KByte Sec, HPE Alletra Remote Copy Average Throughput KByte Sec, HPE Alletra Remote Copy Link Status, HPE Alletra Remote Copy Link State, HPE Alletra Remote Copy Target Quorum Status, HPE Alletra Remote Copy Role, HPE Alletra Remote Copy Link Throughput KByte Sec, HPE Alletra System UsedCapacity Utilization, hpe_alletra_event_Statistics",
+            "createdDate": "2025-05-21T10:53:32+0000",
+            "updatedDate": "2025-05-21T10:53:32+0000",
+            "version": 10,
+            "prerequisites": null,
+            "status": "ACTIVE",
+            "notes": null,
+            "deploymentType": "Standard",
+            "scope": "GLOBAL",
+            "templateType": null,
+            "appName": "hpe-alletra",
+            "nativeType": "HPE Alletra Storage System",
+            "hasForecastOrCD": false
+        }
+    ],
+    "totalResults": 1,
+    "orderBy": "id",
+    "pageNo": 1,
+    "pageSize": 20,
+    "totalPages": 1,
+    "nextPage": false,
+    "previousPageNo": 0,
+    "descendingOrder": true
+}
