@@ -47,11 +47,7 @@ class IntegrationManager:
         self.base_url = auth.base_url
     
     def search_integrations(self, category: str = "SDK", app_name: Optional[str] = None) -> Dict:
-        
-        # Args:
-        #     category: Integration category (default: "SDK")
-        #     app_name: Optional app name to filter (e.g., "alletra")
-        
+        # Searches for integrations by category and optional app name
         url = f"{self.base_url}/api/v2/tenants/{self.client_id}/integrations/available/search"
         
         # Build query string
