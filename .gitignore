@@ -1,6 +1,9 @@
 # Environment variables
 .env
 
+# Sample JSON files (local testing only)
+sample_jsons/
+
 # Python
 __pycache__/
 *.py[cod]
