@@ -1,7 +1,3 @@
-"""
-Template module for fetching and managing OpsRamp global templates.
-Handles fetching global template IDs based on app details.
-"""
 import sys
 from pathlib import Path
 
@@ -19,7 +15,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class TemplateInfo:
-    """Data class to store template information"""
+    # Data class to store template information
     
     def __init__(self, template_id: str, name: str, app_name: str, native_type: str, 
                  version: str, scope: str = "GLOBAL", persona: str = ""):
@@ -48,30 +44,15 @@ class TemplateInfo:
 
 
 class TemplateManager:
-    """Manages OpsRamp template searches and operations"""
     
     def __init__(self, auth: OpsRampAuth, tenant_id: str):
-        """
-        Initialize Template Manager.
         
-        Args:
-            auth: OpsRampAuth instance for authentication
-            tenant_id: Tenant/Client ID
-        """
         self.auth = auth
         self.tenant_id = tenant_id
         self.base_url = auth.base_url
     
     def get_global_template_ids(self, integration_info: IntegrationInfo) -> List[TemplateInfo]:
-        """
-        Get global template IDs for all native types in an integration.
         
-        Args:
-            integration_info: IntegrationInfo object with app details
-        
-        Returns:
-            List of TemplateInfo objects
-        """
         templates = []
         
         print(f"    Fetching templates for {len(integration_info.native_types)} native type(s)...")
@@ -95,20 +76,8 @@ class TemplateManager:
         
         return templates
     
-    def get_template_id(self, app_name: str, native_type: str, version: str, 
-                       persona: Optional[str] = None) -> List[TemplateInfo]:
-        """
-        Get global template ID for a specific app and native type.
+    def get_template_id(self, app_name: str, native_type: str, version: str, persona: Optional[str] = None) -> List[TemplateInfo]:
         
-        Args:
-            app_name: Application name (e.g., 'hpe-alletra')
-            native_type: Native type (e.g., 'HPE Alletra Storage System')
-            version: Major version number (e.g., '10')
-            persona: Optional persona/name filter (e.g., 'Alletra MP')
-        
-        Returns:
-            List of TemplateInfo objects
-        """
         url = f"{self.base_url}/api/v2/tenants/{self.tenant_id}/templates"
         
         # Build query string
@@ -158,12 +127,7 @@ class TemplateManager:
             return []
     
     def print_template_summary(self, templates: List[TemplateInfo]) -> None:
-        """
-        Print a formatted summary of template information.
         
-        Args:
-            templates: List of TemplateInfo objects
-        """
         print("\n" + "=" * 80)
         print(f"Found {len(templates)} Global Template(s)")
         print("=" * 80)
