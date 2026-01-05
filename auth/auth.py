@@ -8,11 +8,6 @@ class OpsRampAuth:
     
     def __init__(self, base_url: str, client_id: str, client_secret: str):
         # Initialize OpsRamp authentication.
-        
-        # Args:
-        #     base_url: Base URL for OpsRamp dev API (e.g., 'https://hpe-dev.api.try.opsramp.com')
-        #     client_id: OAuth client ID (key)
-        #     client_secret: OAuth client secret
 
         self.base_url = base_url.rstrip('/')
         self.client_id = client_id
@@ -24,7 +19,7 @@ class OpsRampAuth:
     
     def get_token(self) -> Dict[str, str]:
       
-        # Check if we have a valid token
+        # Checking valid token
         if self.access_token and self.expires_at:
             if datetime.now() < self.expires_at:
                 return {
@@ -34,7 +29,7 @@ class OpsRampAuth:
                     'expires_at': self.expires_at.isoformat()
                 }
         
-        # Generate new token
+        # Gen. new token
         url = f"{self.base_url}/tenancy/auth/oauth/token"
         headers = {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -58,7 +53,7 @@ class OpsRampAuth:
         self.scope = token_data.get('scope', '')
         expires_in = token_data.get('expires_in', 7199)
         
-        # Calculate expiration time (with 60 second buffer for safety)
+        # Calculate expiration time (60 second buffer)
         self.expires_at = datetime.now() + timedelta(seconds=expires_in - 60)
         
         return {
