@@ -77,7 +77,14 @@ class IntegrationManager:
             version = self._get_latest_major_version(versions)
             
             metadata = result.get('metaData', {})
-            persona = metadata.get('resourceHierarchy', '')
+            resource_hierarchy = metadata.get('resourceHierarchy', '')
+            # Ensure persona is always a string
+            if isinstance(resource_hierarchy, dict):
+                persona = resource_hierarchy.get('name', '')
+            elif isinstance(resource_hierarchy, str):
+                persona = resource_hierarchy
+            else:
+                persona = ''
             
             info = IntegrationInfo(
                 app_name=app_name,

@@ -6,6 +6,7 @@ from auth.auth import OpsRampAuth
 from auth.config import get_pod_config, get_tenant_ids
 from integration.integration import IntegrationManager
 from templates.templates import TemplateManager
+from cloned_templates.cloned_templates import ClonedTemplateManager
 
 
 def main():
@@ -18,11 +19,10 @@ def main():
     # STEP 1: Load Configuration
     # ========================================================================
     try:
-        print("\n[Step 1/5] Loading POD1 configuration...")
+        print("\n[Step 1/6] Loading POD1 configuration...")
         pod1_config = get_pod_config(1)
         tenant_ids = get_tenant_ids(1)
-        print("✓ POD1 configuration loaded")
-        # pod2_config = get_pod_config(2)
+        print("✓ Configuration loaded")
     except ValueError as e:
         print(f"✗ Configuration Error: {str(e)}")
         return
@@ -30,125 +30,90 @@ def main():
     # ========================================================================
     # STEP 2: Authenticate with POD1
     # ========================================================================
-    print("\n[Step 2/5] Authenticating with POD1...")
+    print("\n[Step 2/6] Authenticating with POD1...")
     pod1_auth = OpsRampAuth(**pod1_config)
     
     try:
         pod1_token = pod1_auth.get_token()
-        print(f"✓ POD1 authenticated successfully")
-        print(f"  Base URL: {pod1_config['base_url']}")
-        print(f"  Token: {pod1_token['access_token'][:20]}...")
+        print("✓ Authenticated")
     except Exception as e:
-        print(f"✗ POD1 authentication failed: {str(e)}")
+        print(f"✗ Authentication failed: {str(e)}")
         return
     
     # ========================================================================
     # STEP 3: Get Tenant/Client ID
     # ========================================================================
-    print("\n[Step 3/5] Using Client ID from configuration...")
+    print("\n[Step 3/6] Getting Client ID...")
     tenant_id = tenant_ids.get('client_id', '')
     
     if not tenant_id:
-        print("⚠ Client ID not found in .env file")
-        tenant_id = input("  Enter POD1 Client ID (Tenant): ").strip()
-        if not tenant_id:
-            print("✗ Client ID is required to proceed")
-            return
+        print("✗ Client ID not found in .env file")
+        return
     
-    print(f"✓ Using Client ID: {tenant_id}")
+    print("✓ Client ID loaded")
     
     # ========================================================================
     # STEP 4: Fetch Integration Details
     # ========================================================================
-    print("\n[Step 4/5] Fetching integration details for 'alletra'...")
+    print("\n[Step 4/6] Fetching integration details...")
     
     try:
-        # Initialize Integration Manager
         integration_mgr = IntegrationManager(pod1_auth, tenant_id)
-        
-        # Search for alletra integrations
         integrations = integration_mgr.get_integration_details(app_name="alletra")
-        
-        print(f"✓ Found {len(integrations)} alletra integration(s)")
-        
-        # Display summary
-        integration_mgr.print_integration_summary(integrations)
-            
+        print(f"✓ Found {len(integrations)} integration(s)")
     except Exception as e:
-        print(f"✗ Failed to fetch integration details: {str(e)}")
-        import traceback
-        traceback.print_exc()
+        print(f"✗ Failed: {str(e)}")
         return
     
     # ========================================================================
     # STEP 5: Fetch Global Template IDs
     # ========================================================================
-    print("\n[Step 5/5] Fetching global template IDs...")
-    print(f"  Apps to process: {len(integrations)}")
+    print("\n[Step 5/6] Fetching global template IDs...")
     
     try:
-        # Initialize Template Manager
         template_mgr = TemplateManager(pod1_auth, tenant_id)
-        
-        # Collect all templates for all integrations
         all_templates = []
         
-        # First loop: Iterate through each app/integration
-        for app_idx, integration in enumerate(integrations, 1):
-            print(f"\n  [{app_idx}/{len(integrations)}] Processing app: {integration.app_name}")
-            print(f"    Version: {integration.version}")
-            if integration.persona:
-                print(f"    Persona: {integration.persona}")
-            
-            # Second loop (inside get_global_template_ids): Iterate through native types
+        for integration in integrations:
             templates = template_mgr.get_global_template_ids(integration)
-            
-            print(f"    ✓ Total for {integration.app_name}: {len(templates)} template(s)")
             all_templates.extend(templates)
         
-        print(f"\n✓ Grand Total: {len(all_templates)} template(s) across all apps")
-        
-        # Display template summary
-        template_mgr.print_template_summary(all_templates)
-        
-        # Display summary by app
-        print("\n" + "=" * 80)
-        print("Summary: Templates by App")
-        print("=" * 80)
-        
-        app_summary = {}
-        for tmpl in all_templates:
-            if tmpl.app_name not in app_summary:
-                app_summary[tmpl.app_name] = []
-            app_summary[tmpl.app_name].append(tmpl)
-        
-        # for app_name, templates in app_summary.items():
-        #     print(f"\n{app_name}: {len(templates)} template(s)")
-        #     for tmpl in templates:
-        #         print(f"  • {tmpl.native_type}")
-        #         print(f"    ID: {tmpl.template_id}")
-            
+        print(f"✓ Found {len(all_templates)} global template(s)")
     except Exception as e:
-        print(f"✗ Failed to fetch template IDs: {str(e)}")
-        import traceback
-        traceback.print_exc()
+        print(f"✗ Failed: {str(e)}")
         return
     
     # ========================================================================
-    # SUMMARY
+    # STEP 6: Fetch Cloned Template IDs
     # ========================================================================
-    print("\n" + "=" * 80)
-    print("✓ Process Complete!")
-    print("=" * 80)
-    print(f"\nData collected (in memory):")
-    print(f"  • {len(integrations)} integration(s)")
-    print(f"  • {len(all_templates)} global template(s)")
-    print("\n📋 Next steps to implement:")
-    print("  1. Get cloned template ID")
-    print("  2. Get customizations")
-    print("  3. Clone DMP and templates to POD2")
-    print("  4. Update cloned template customizations")
-    print("=" * 80)
+    print("\n[Step 6/6] Fetching cloned template IDs...")
+    
+    try:
+        cloned_mgr = ClonedTemplateManager(pod1_auth, tenant_id)
+        cloned_dict = cloned_mgr.get_all_cloned_templates(all_templates)
+        
+        total_clones = sum(len(clones) for clones in cloned_dict.values())
+        print(f"✓ Found {total_clones} cloned template(s)")
+        
+        # Display cloned templates with parent info
+        print("\n" + "=" * 80)
+        print("CLONED TEMPLATES")
+        print("=" * 80)
+        
+        if total_clones == 0:
+            print("\nNo cloned templates found.")
+        else:
+            for global_id, clones in cloned_dict.items():
+                if len(clones) > 0:
+                    print(f"\nGlobal Template ID: {global_id}")
+                    for clone in clones:
+                        print(f"  → Cloned Template ID: {clone.template_id}")
+        
+        print("\n" + "=" * 80)
+        
+    except Exception as e:
+        print(f"✗ Failed: {str(e)}")
+        return
 
 
 if __name__ == "__main__":

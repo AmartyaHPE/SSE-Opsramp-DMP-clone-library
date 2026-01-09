@@ -89,7 +89,7 @@ class TemplateManager:
         ]
         
         # Add persona filter only if it exists
-        if persona and persona.strip():
+        if persona and isinstance(persona, str) and persona.strip():
             query_parts.append(f"name:{persona}")
         
         query_string = "+".join(query_parts)
