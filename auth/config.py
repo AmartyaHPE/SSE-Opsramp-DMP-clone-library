@@ -5,9 +5,6 @@ from typing import Dict, Optional
 
 
 def load_env_file(env_path: Optional[str] = None) -> None:
-    # Load environment variables from .env file.
-    
-    # Args: env_path: Path to .env file. If None, looks for .env in project root.
     
     if env_path is None:
         # Look for .env in project root

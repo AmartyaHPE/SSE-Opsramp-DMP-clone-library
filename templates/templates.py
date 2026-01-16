@@ -1,7 +1,6 @@
 import sys
 from pathlib import Path
 
-# Add parent directory to path for imports
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import requests
@@ -10,12 +9,10 @@ from typing import Dict, List, Optional
 from auth.auth import OpsRampAuth
 from integration.integration import IntegrationInfo
 
-# Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class TemplateInfo:
-    # Data class to store template information
     
     def __init__(self, template_id: str, name: str, app_name: str, native_type: str, 
                  version: str, scope: str = "GLOBAL", persona: str = ""):
@@ -57,7 +54,6 @@ class TemplateManager:
         
         print(f"    Fetching templates for {len(integration_info.native_types)} native type(s)...")
         
-        # For each native type, fetch template ID
         for idx, native_type in enumerate(integration_info.native_types, 1):
             print(f"      [{idx}/{len(integration_info.native_types)}] {native_type}...", end=" ")
             
@@ -80,7 +76,6 @@ class TemplateManager:
         
         url = f"{self.base_url}/api/v2/tenants/{self.tenant_id}/templates"
         
-        # Build query string
         query_parts = [
             "scope:GLOBAL",
             f"appName:{app_name}",
