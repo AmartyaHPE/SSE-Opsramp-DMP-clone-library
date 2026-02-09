@@ -1,10 +1,47 @@
 # SSE-Opsramp-DMP-clone-library
 
-Python automation tool for cloning OpsRamp templates and DMPs between POD environments.
+Python automation tool for cloning OpsRamp templates between POD environments.
 
 ## Overview
 
-This tool automates the discovery and cloning of OpsRamp Device Management Profiles (DMPs) and monitoring templates across different POD environments. It systematically fetches integration details, global templates, and cloned templates to facilitate infrastructure configuration management.
+This tool automates the cloning of OpsRamp monitoring templates from POD-1 (source) to POD-2 (destination). It fetches template customizations from the source POD and clones them to the target POD while preserving configurations.
+
+## Workflow
+
+### POD-1 (Source):
+
+1. Authenticate with POD-1
+2. Get global template ID by template name
+3. Get cloned template ID using global template ID as parent
+4. Get customizations (JSON body) of the cloned template
+
+### POD-2 (Destination):
+
+1. Authenticate with POD-2
+2. Get global template ID by the same name
+3. Clone template using payload from POD-1 (replace `id` with `clonedTemplateId`)
+
+## Project Structure
+
+```
+├── auth/                    # Authentication module
+│   ├── auth.py             # OpsRamp OAuth authentication
+│   └── config.py           # Environment configuration loader
+├── config/                  # Configuration files
+│   ├── settings.py         # Settings loader
+│   └── template_names.txt  # List of templates to clone
+├── global_template/         # Global template module
+│   └── global_template.py  # Fetch global template by name
+├── cloned_template/         # Cloned template module
+│   └── cloned_template.py  # Fetch cloned template by parent ID
+├── template_customizations/ # Template customizations module
+│   └── template_customizations.py  # Get template JSON payload
+├── clone_template/          # Clone template module
+│   └── clone_template.py   # Clone template to target POD
+├── output/                  # Output directory for JSON files
+├── main.py                  # Main orchestration script
+└── .env                     # Environment variables (create this)
+```
 
 ## Setup
 
@@ -26,22 +63,33 @@ pip install requests
 Create a `.env` file in the project root:
 
 ```env
-# POD 1 Configuration
-POD1_BASE_URL=https://hpe-dev.api.try.opsramp.com
+# POD 1 Configuration (Source)
+POD1_BASE_URL=https://hpe.api.opsramp.com
 POD1_CLIENT_KEY=your_oauth_client_key
 POD1_CLIENT_SECRET=your_oauth_client_secret
 POD1_CLIENT_ID=your_tenant_id
 POD1_PARTNER_ID=your_partner_id
 
-# POD 2 Configuration (for cloning)
-POD2_BASE_URL=https://hpe-prod.api.opsramp.com
+# POD 2 Configuration (Destination)
+POD2_BASE_URL=https://preprod.api.opsramp.net
 POD2_CLIENT_KEY=your_oauth_client_key
 POD2_CLIENT_SECRET=your_oauth_client_secret
 POD2_CLIENT_ID=your_tenant_id
 POD2_PARTNER_ID=your_partner_id
 ```
 
-**Note:** `CLIENT_KEY` is for OAuth authentication, `CLIENT_ID` is the tenant ID used in API calls.
+**Note:** `CLIENT_KEY` is for OAuth authentication, `CLIENT_ID`/`PARTNER_ID` is the tenant ID used in API calls.
+
+### 4. Configure Template Names
+
+Edit `config/template_names.txt` to add the global template names you want to clone:
+
+```
+# Template Names Configuration
+# Add one global template name per line
+hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9
+hpe-alletra Alletra MP HPE Alletra Array Template - 5
+```
 
 ## Usage
 
@@ -53,54 +101,74 @@ python main.py
 
 This will execute the complete workflow:
 
-1. Load configuration from `.env`
-2. Authenticate with POD1
-3. Fetch integration details (app names, versions, native types, personas)
-4. Fetch global template IDs
-5. Fetch cloned template IDs mapped to their parent global templates
+1. Load template names from `config/template_names.txt`
+2. **POD-1**: Authenticate, get global template ID, get cloned template ID, get customizations
+3. **POD-2**: Authenticate, get global template ID, clone template with customizations
 
-### Testing Individual Components
+### Output Files
 
-**Test Authentication:**
+The tool saves JSON files in the `output/` directory:
 
-```powershell
-python auth\auth_test.py
-```
-
-**Test Integration Fetching:**
-
-```powershell
-python integration\integration_test.py
-```
-
-**Test Template Discovery:**
-
-```powershell
-python templates\templates_test.py
-```
-
-**Test Cloned Template Fetching:**
-
-```powershell
-python cloned_templates\cloned_templates_test.py
-```
+- `pod1_{template_name}_customizations.json` - Template customizations from POD-1
+- `pod2_{template_name}_clone_response.json` - Clone API response from POD-2
 
 ## API Integration Examples
 
-### Using Authentication
+### Using Global Template Module
 
 ```python
 from auth.auth import OpsRampAuth
-from auth.config import get_pod_config
+from auth.config import get_pod_config, get_tenant_ids
+from global_template.global_template import GlobalTemplateManager
 
-# Load configuration from .env
-pod1_config = get_pod_config(1)
+# Setup
+pod_config = get_pod_config(1)
+tenant_ids = get_tenant_ids(1)
+auth = OpsRampAuth(**pod_config)
+tenant_id = tenant_ids.get('partner_id')
 
-# Initialize authentication
-auth = OpsRampAuth(**pod1_config)
+# Get global template by name
+manager = GlobalTemplateManager(auth, tenant_id)
+template_info = manager.get_global_template_by_name(
+    "hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9"
+)
+print(f"Template ID: {template_info.template_id}")
+```
 
-# Get token (cached automatically)
-token_info = auth.get_token()
+### Using Cloned Template Module
+
+```python
+from cloned_template.cloned_template import ClonedTemplateManager
+
+# Get cloned template using global template ID as parent
+manager = ClonedTemplateManager(auth, tenant_id)
+cloned_info = manager.get_cloned_template_by_parent_id(global_template_id)
+print(f"Cloned Template ID: {cloned_info.template_id}")
+```
+
+### Using Template Customizations Module
+
+```python
+from template_customizations.template_customizations import TemplateCustomizationsManager
+
+# Get full template customizations (JSON payload)
+manager = TemplateCustomizationsManager(auth, tenant_id)
+customizations = manager.get_template_customizations(cloned_template_id)
+```
+
+### Using Clone Template Module
+
+```python
+from clone_template.clone_template import CloneTemplateManager
+
+# Clone template to POD-2
+manager = CloneTemplateManager(pod2_auth, pod2_tenant_id)
+response = manager.clone_template(
+    source_customizations=customizations,
+    target_global_template_id=pod2_global_template_id,
+    new_template_name="My Cloned Template"
+)
+print(f"New Template ID: {response.get('id')}")
 
 # Get authorization header for API requests
 headers = auth.get_auth_header()
@@ -228,22 +296,18 @@ The tool executes the following steps:
 ### Discovery Phase (Current)
 
 1. **Configuration Loading**
-
    - Read credentials from `.env` file
    - Validate required configuration values
 
 2. **Authentication**
-
    - Obtain OAuth2 access token
    - Cache token with automatic refresh
 
 3. **Integration Discovery**
-
    - Search for integrations by name
    - Extract app metadata (name, version, native types, persona)
 
 4. **Global Template Discovery**
-
    - For each integration and native type combination
    - Fetch global template IDs from OpsRamp API
    - Build queryString filters: `scope:GLOBAL+appName+nativeType+version+name`
@@ -256,11 +320,9 @@ The tool executes the following steps:
 ### Cloning Phase (To Be Implemented)
 
 6. **Get Customizations**
-
    - Fetch customization details from cloned templates in POD1
 
 7. **Clone to POD2**
-
    - Authenticate with POD2
    - Clone global templates for target tenants
    - Clone DMPs for target tenants

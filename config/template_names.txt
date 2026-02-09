@@ -1,0 +1,7 @@
+# Template Names Configuration
+# Add one global template name per line
+# Lines starting with # are comments and will be ignored
+# Example:
+# hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9
+
+hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9

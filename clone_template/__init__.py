@@ -1,0 +1,1 @@
+# Clone Template module

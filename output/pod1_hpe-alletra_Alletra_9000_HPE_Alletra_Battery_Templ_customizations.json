@@ -1,0 +1,94 @@
+{
+    "id": "488e658c-c25e-4e1c-96af-e38487d5265b",
+    "name": "MSE Template - hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9",
+    "description": "hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9",
+    "resourceType": "DEFAULT_RESOURCE",
+    "collectorType": "OpsRamp Gateway",
+    "status": {
+        "state": "ACTIVE"
+    },
+    "appName": "hpe-alletra",
+    "nativeType": "HPE Alletra Battery",
+    "generation": 2,
+    "tags": "",
+    "createdDate": "2025-04-23T08:48:08+0000",
+    "updatedDate": "2025-11-25T06:34:25+0000",
+    "scope": "Partner",
+    "orgId": "45f83ccb-5e43-b20c-9ba1-a08d80d65557",
+    "templateFamily": null,
+    "notes": "",
+    "prerequisites": "",
+    "deploymentType": "Standard",
+    "parentUUID": "f6af257b-62c6-4203-af4f-39df35a89ddf",
+    "assignedToResources": false,
+    "templateType": [
+        "Gateway SDK"
+    ],
+    "metricGroups": [
+        {
+            "id": "cdd1f51d-afa9-41b6-bbbf-e0dff2481670",
+            "name": "HPE Alletra Battery Monitor hpe-alletra HPE Alletra Battery 9",
+            "frequency": 5,
+            "adapterType": "GATEWAY_SDK",
+            "isG2MonitorType": true,
+            "metrics": [
+                {
+                    "name": "hpe_alletra_battery_State",
+                    "displayName": "HPE Alletra Battery State",
+                    "description": "Battery state. Possible values are. OK : 0,Failed : 1,Degraded : 2,NotPresent : 3",
+                    "category": "METRIC",
+                    "state": "Active",
+                    "dataPointType": "Gauge",
+                    "metricCategory": "AVAILABILITY",
+                    "thresholdType": "STATIC",
+                    "availability": false,
+                    "alertOnMissingComponents": false,
+                    "alertSubject": "${severity} - Resource: ${resource.name} - ${component.name} - ${metric.value} (${threshold})",
+                    "alertContent": "${severity} - ${component.name}, Resource name: ${resource.name}, IP Address: ${resource.ip}, Metric Name: ${metric.name}, Component: ${component.name}, Severity: ${severity}, Value: ${metric.value}, Reason: ${metric.value} (${threshold})",
+                    "monitorType": "RESOURCE",
+                    "thresholds": [
+                        {
+                            "criticalThreshold": "1,3",
+                            "warningThreshold": "2",
+                            "criticalRepeatCount": 3,
+                            "warningRepeatCount": 3,
+                            "criticalOperator": "IN_LIST",
+                            "warningOperator": "EQUAL",
+                            "raiseAlert": true,
+                            "levelType": "TEMPLATE"
+                        }
+                    ],
+                    "knowledgeArticles": []
+                },
+                {
+                    "name": "hpe_alletra_battery_DetailedState",
+                    "displayName": "HPE Alletra Battery DetailedState",
+                    "description": "Detailed state of the battery. Possible values are. normal : 0,InvalidFirmware : 1 ,Unknown : 2 ,Undefined : 3,NotPresent : 4,Expired : 5,Failed : 6",
+                    "category": "METRIC",
+                    "state": "Active",
+                    "dataPointType": "Gauge",
+                    "metricCategory": "AVAILABILITY",
+                    "thresholdType": "STATIC",
+                    "availability": false,
+                    "alertOnMissingComponents": false,
+                    "alertSubject": "${severity} - Resource: ${resource.name} - ${component.name} - ${metric.value} (${threshold})",
+                    "alertContent": "${severity} - ${component.name}, Resource name: ${resource.name}, IP Address: ${resource.ip}, Metric Name: ${metric.name}, Component: ${component.name}, Severity: ${severity}, Value: ${metric.value}, Reason: ${metric.value} (${threshold})",
+                    "monitorType": "RESOURCE",
+                    "thresholds": [
+                        {
+                            "criticalThreshold": "4,6",
+                            "warningThreshold": "1,2,3,5",
+                            "criticalRepeatCount": 3,
+                            "warningRepeatCount": 3,
+                            "criticalOperator": "IN_LIST",
+                            "warningOperator": "IN_LIST",
+                            "raiseAlert": true,
+                            "levelType": "TEMPLATE"
+                        }
+                    ],
+                    "knowledgeArticles": []
+                }
+            ]
+        }
+    ]
+}
