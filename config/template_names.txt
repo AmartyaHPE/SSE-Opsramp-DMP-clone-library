@@ -5,3 +5,4 @@
 # hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9
 
 hpe-alletra Alletra 9000 HPE Alletra Battery Template - 9
+

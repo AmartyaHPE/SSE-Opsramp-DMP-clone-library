@@ -64,7 +64,6 @@ class ClonedTemplateManager:
         
         url = f"{self.base_url}/api/v2/tenants/{self.tenant_id}/templates"
         
-        # Build query string: scope:GLOBAL,SERVICE PROVIDER,CLIENT,PARTNER+parentId:{id}
         query_string = f"scope:GLOBAL,SERVICE PROVIDER,CLIENT,PARTNER+parentId:{global_template_id}"
         
         params = {
@@ -82,7 +81,7 @@ class ClonedTemplateManager:
                 results = data.get('results', [])
                 
                 if not results:
-                    print(f"  ⚠ No cloned template found for parent ID: {global_template_id}")
+                    print(f" No cloned template found for parent ID: {global_template_id}")
                     return None
                 
                 # Get the first matching result

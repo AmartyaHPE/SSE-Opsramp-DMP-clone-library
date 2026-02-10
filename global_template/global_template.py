@@ -14,7 +14,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 
 class GlobalTemplateInfo:
-    # Data class to store global template information.
+    # data class for global template
     
     def __init__(self, template_id: str, name: str, description: str = "",
                  app_name: str = "", native_type: str = "", version: str = "",
@@ -54,7 +54,7 @@ class GlobalTemplateManager:
     
     def get_global_template_by_name(self, template_name: str) -> Optional[GlobalTemplateInfo]:
         # API: GET https://{base_url}/api/v2/tenants/{tenantId}/templates?queryString=scope:GLOBAL+name:{template_name}&includeGatewaySDK=true
-   
+
         url = f"{self.base_url}/api/v2/tenants/{self.tenant_id}/templates"
         
         # Build query string - don't pre-encode, let requests handle it

@@ -66,16 +66,9 @@ class TemplateCustomizationsManager:
             return None
     
     def save_customizations_to_file(self, customizations: Dict, filename: str) -> bool:
-        """
-        Save customizations payload to a JSON file.
+
+        # Save customizations payload to a JSON file.
         
-        Args:
-            customizations: Template customizations dictionary
-            filename: Output filename
-            
-        Returns:
-            True if saved successfully, False otherwise
-        """
         try:
             output_dir = Path(__file__).parent.parent / 'output'
             output_dir.mkdir(exist_ok=True)
@@ -94,18 +87,7 @@ class TemplateCustomizationsManager:
 
 
 # Standalone function for simple usage
-def get_template_customizations(auth: OpsRampAuth, tenant_id: str, 
-                                cloned_template_id: str) -> Optional[Dict]:
-    """
-    Standalone function to fetch template customizations.
+def get_template_customizations(auth: OpsRampAuth, tenant_id: str, cloned_template_id: str) -> Optional[Dict]:
     
-    Args:
-        auth: OpsRampAuth instance
-        tenant_id: Tenant ID
-        cloned_template_id: Cloned template ID
-        
-    Returns:
-        Template customizations as dictionary, None if failed
-    """
     manager = TemplateCustomizationsManager(auth, tenant_id)
     return manager.get_template_customizations(cloned_template_id)
